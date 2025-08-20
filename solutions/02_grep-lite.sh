@@ -66,12 +66,7 @@ grep_lite_solution_mj() {
 }
 #grep_lite_solution_mj "$@"
 
-rep_lite_solution_Famas(){
-    printf "이동현 02번 코드\n"
-}
-rep_lite_solution_Famas;
-
-grep_lite_solution_sarah() {
+rep_lite_solution_Famas() {
     echo "Sarah's solution for grep-lite"
     local case_insensitive=false
     local show_lines=false
@@ -124,4 +119,4 @@ grep_lite_solution_sarah() {
     $case_insensitive && shopt -u nocasematch
 }
 
-grep_lite_solution_sarah "$@"
+rep_lite_solution_Famas "$@"

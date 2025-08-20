@@ -1,5 +1,5 @@
 #======
-#!/bin/bash 
+#!/bin/bash
 # Mission: 01_wc-lite
 #=======
  # Mission: 01_wc-lite
