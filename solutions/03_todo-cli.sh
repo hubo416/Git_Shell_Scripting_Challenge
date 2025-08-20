@@ -1,13 +1,12 @@
 #!/bin/bash
 
- # Mission: 01_wc-lite
- # 텍스트 파일의 라인 수, 단어 수, 문자 수를 세는 `wc` 명령어의 경량 버전을 구현합니다.
+ # Mission: 03_todo-cli.sh
+ # 로컬 파일(~/.todo)을 기반으로 동작하는 간단한 TODO 리스트 CLI를 만듭니다.
 
- # 요구사항:
- #  - -l: 라인 수 출력
- #  - -w: 단어 수 출력
- #  - -c: 문자 수 출력
- #  - 옵션이 없으면 -l, -w, -c 결과를 모두 출력합니다.
+# 요구사항:
+# add "할 일 내용": 새로운 할 일을 추가합니다.
+# list: 현재 TODO 목록을 출력합니다.
+# done <번호>: 특정 번호의 할 일을 완료 처리합니다.
 
 
 #  !! 참가자 솔루션 !!
@@ -18,6 +17,5 @@
 # (여기에 자신의 스크립트 코드를 작성하세요)
 # wc_lite_solution_yourname() {
 #    Your logic here
-#    echo "My solution for wc-lite"
+#    echo "My solution for todo-cli"
 # }
-# mjmjmj

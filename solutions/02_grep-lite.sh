@@ -1,13 +1,11 @@
 #!/bin/bash
 
- # Mission: 01_wc-lite
- # 텍스트 파일의 라인 수, 단어 수, 문자 수를 세는 `wc` 명령어의 경량 버전을 구현합니다.
+ # Mission: 02_grep-lite.sh
+ # 파일 또는 표준 입력(stdin)에서 특정 패턴의 문자열을 검색하는 grep 명령어의 경량 버전을 구현합니다.
 
- # 요구사항:
- #  - -l: 라인 수 출력
- #  - -w: 단어 수 출력
- #  - -c: 문자 수 출력
- #  - 옵션이 없으면 -l, -w, -c 결과를 모두 출력합니다.
+# 요구사항:
+# -i: 대소문자를 무시하고 검색합니다.
+# -n: 검색된 라인의 번호를 함께 출력합니다.
 
 
 #  !! 참가자 솔루션 !!
@@ -18,6 +16,5 @@
 # (여기에 자신의 스크립트 코드를 작성하세요)
 # wc_lite_solution_yourname() {
 #    Your logic here
-#    echo "My solution for wc-lite"
+#    echo "My solution for grep-lite"
 # }
-# mjmjmj
