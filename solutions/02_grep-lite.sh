@@ -123,5 +123,5 @@ grep_lite_solution_sarah() {
 
     $case_insensitive && shopt -u nocasematch
 }
-
+#try ./02_grep-lite.sh -i -n "hello" test.txt
 grep_lite_solution_sarah "$@"
