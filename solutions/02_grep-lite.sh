@@ -18,3 +18,6 @@
 #    Your logic here
 #    echo "My solution for grep-lite"
 # }
+wc_lite_solution_mj() {
+    echo ImMj
+}
