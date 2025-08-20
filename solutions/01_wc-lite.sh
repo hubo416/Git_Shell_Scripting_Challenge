@@ -192,4 +192,4 @@ wc_lite_solution_mj() {
 }
 
 # mj 실행하기
-wc_lite_solution_mj "$@"
+# wc_lite_solution_mj "$@"
