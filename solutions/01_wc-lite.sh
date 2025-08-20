@@ -18,11 +18,47 @@
     echo "Sarah's solution for wc-lite"
  }
 
+#!/bin/bash
 
- wc_lite_solution_Famas(){
+wc_lite_solution_sarah() {
+    show_lines=0
+    show_words=0
+    show_chars=0
+    files=()
 
-    echo "Famas 코드";
+    # 옵션 처리
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            -l) show_lines=1 ;;
+            -w) show_words=1 ;;
+            -c) show_chars=1 ;;
+            --) shift; while [[ $# -gt 0 ]]; do files+=("$1"); shift; done; break ;;
+            -*) echo "Unknown option: $1"; return 1 ;;
+            *) files+=("$1") ;;
+        esac
+        shift
+    done
 
-    
+    # 옵션이 하나도 없으면 모두 출력
+    if [[ $show_lines -eq 0 && $show_words -eq 0 && $show_chars -eq 0 ]]; then
+        show_lines=1
+        show_words=1
+        show_chars=1
+    fi
 
+    # 파일 처리
+    for f in "${files[@]}"; do
+        if [[ ! -f $f ]]; then
+            echo "File not found: $f"
+            continue
+        fi
+
+        [[ $show_lines -eq 1 ]] && echo -n "Lines: $(wc -l < "$f") "
+        [[ $show_words -eq 1 ]] && echo -n "Words: $(wc -w < "$f") "
+        [[ $show_chars -eq 1 ]] && echo -n "Chars: $(wc -c < "$f") "
+        echo
+    done
 }
+
+# 호출
+wc_lite_solution_sarah "$@"
