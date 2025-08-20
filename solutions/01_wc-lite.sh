@@ -111,3 +111,85 @@ wc_lite_solution_sarah "$@"
  ################## 방어막 ##################
  ############################################
  ############################################
+
+wc_lite_solution_mj() {
+    # 옵션 플래그 초기화
+    show_lines=0
+    show_words=0
+    show_chars=0
+    option_count=0
+
+    # getopts를 사용하여 -l, -w, -c 옵션 처리
+    while getopts "lwc" opt; do
+        case $opt in
+            l)
+                show_lines=1
+                ((option_count++))
+                ;;
+            w)
+                show_words=1
+                ((option_count++))
+                ;;
+            c)
+                show_chars=1
+                ((option_count++))
+                ;;
+            \?)
+                echo "잘못된 옵션입니다: -$OPTARG" >&2
+                return 1
+                ;;
+        esac
+    done
+
+    # 옵션 인자들을 처리한 후, 다음 인자로 이동
+    shift $((OPTIND - 1))
+    
+    # 파일명이 없으면 표준 입력(stdin)을 사용
+    file=${1:-/dev/stdin}
+    
+    if [[ "$file" != "/dev/stdin" && ! -r "$file" ]]; then
+        echo "오류: 파일을 읽을 수 없습니다: $file" >&2
+        return 1
+    fi
+    
+    # 파일 내용을 변수에 저장 (표준 입력 포함)
+    content=$(cat -- "$file")
+
+    # 옵션이 하나도 주어지지 않은 경우, 모든 옵션을 활성화
+    if [ $option_count -eq 0 ]; then
+        show_lines=1
+        show_words=1
+        show_chars=1
+    fi
+    
+    # 결과 문자열을 담을 변수
+    output=""
+
+    # 각 옵션에 따라 결과 계산 및 output 변수에 추가
+    if [ $show_lines -eq 1 ]; then
+        lines=$(echo -n "$content" | wc -l)
+        output="${output} ${lines}"
+    fi
+
+    if [ $show_words -eq 1 ]; then
+        words=$(echo -n "$content" | wc -w)
+        output="${output} ${words}"
+    fi
+
+    if [ $show_chars -eq 1 ]; then
+        # wc -c는 바이트 수를 계산합니다.
+        chars=$(echo -n "$content" | wc -c)
+        output="${output} ${chars}"
+    fi
+
+    # 앞뒤 공백을 제거하고 결과 출력
+    # 파일명이 인자로 주어진 경우, 파일명도 함께 출력
+    if [ -n "$1" ]; then
+        echo "${output} $1" | sed 's/^ *//'
+    else
+        echo "${output}" | sed 's/^ *//'
+    fi
+}
+
+# mj 실행하기
+wc_lite_solution_mj "$@"
