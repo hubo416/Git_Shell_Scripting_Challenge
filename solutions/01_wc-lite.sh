@@ -96,34 +96,18 @@ wc_lite_solution_sarah "$@"
     word_count=$(echo "$input" | wc -w)
     char_count=$(echo "$input" | wc -m)
 
-<<<<<<< HEAD
-# --- 참가자: [Your Name Here] ---
-# (여기에 자신의 스크립트 코드를 작성하세요)
- wc_lite_solution_yourname() {
-    echo "Sarah's solution for wc-lite"
-<<<<<<< HEAD
- }
-
-
- wc_lite_solution_Famas(){
-
-    echo "Famas 코드";
-
-    
-
 }
-=======
- }
->>>>>>> 1752b1a8cc5b62d5f6dbd6561bb4155343f6ef03
-=======
+
+
+# wc_lite_solution_Famas(){
+#    echo "Famas 코드";
+# }
     # 출력
     $opt_l && echo "Lines: $line_count"
     $opt_w && echo "Words: $word_count"
     $opt_c && echo "Chars: $char_count"
-}
  ############################################
  ############################################
  ################## 방어막 ##################
  ############################################
  ############################################
->>>>>>> b099b9b3889b436bbd622be85384816126a4ef8f
