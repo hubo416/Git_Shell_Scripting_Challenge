@@ -17,3 +17,12 @@
  wc_lite_solution_yourname() {
     echo "Sarah's solution for wc-lite"
  }
+
+
+ wc_lite_solution_Famas(){
+
+    echo "Famas 코드";
+
+    
+
+}
