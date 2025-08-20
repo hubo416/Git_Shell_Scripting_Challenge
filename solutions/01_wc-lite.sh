@@ -16,7 +16,6 @@
 
 # --- 참가자: [Your Name Here] ---
 # (여기에 자신의 스크립트 코드를 작성하세요)
-# wc_lite_solution_yourname() {
-#    Your logic here
-#    echo "My solution for wc-lite"
-# }
+ wc_lite_solution_yourname() {
+    echo "Sarah's solution for wc-lite"
+ }
