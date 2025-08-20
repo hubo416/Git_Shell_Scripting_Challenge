@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 Hello world, from your shell.
 
 This is a simple test file
 for the wc-lite and grep-lite scripts.
 
 Have a nice day!
+=======
+Hello world, from your shell.
+
+This is a simple test file
+for the wc-lite and grep-lite scripts.
+
+Have a nice day!
+>>>>>>> 3a35f0c6ac02873b0238edcd7ab224d2754a84d6
