@@ -67,6 +67,54 @@ grep_lite_solution_mj() {
 #grep_lite_solution_mj "$@"
 
 rep_lite_solution_Famas(){
-    printf "이동현 02번 코드\n"
+
+IGNORE_CASE=false
+SHOW_LINE_NUM=false
+PATTERN=""
+FILES=()
+
+# 옵션 처리
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -i) IGNORE_CASE=true ;;
+        -n) SHOW_LINE_NUM=true ;;
+        -*) echo "Unknown option: $1"; exit 1 ;;
+        *) 
+            if [[ -z "$PATTERN" ]]; then
+                PATTERN="$1"
+            else
+                FILES+=("$1")
+            fi
+            ;;
+    esac
+    shift
+done
+
+# 입력 소스 결정
+if [[ ${#FILES[@]} -eq 0 ]]; then
+    INPUT="/dev/stdin"
+else
+    INPUT="${FILES[@]}"
+fi
+
+# grep-lite 동작
+LINE_NUM=0
+while IFS= read -r LINE; do
+    ((LINE_NUM++))
+    if $IGNORE_CASE; then
+        MATCH=$(echo "$LINE" | grep -i -F "$PATTERN")
+    else
+        MATCH=$(echo "$LINE" | grep -F "$PATTERN")
+    fi
+
+    if [[ -n "$MATCH" ]]; then
+        if $SHOW_LINE_NUM; then
+            echo "$LINE_NUM:$LINE"
+        else
+            echo "$LINE"
+        fi
+    fi
+done < <(cat $INPUT)
+    
 }
-rep_lite_solution_Famas;
+rep_lite_solution_Famas "$@"

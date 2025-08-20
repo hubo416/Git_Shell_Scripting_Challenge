@@ -1,3 +1,8 @@
-Hello world
-This is a test file.
-Shell scripting is awfully difficult.
+cat <<EOF > test.txt
+Hello World
+hello world
+This is a Test
+Another line
+HELLO again
+grep-lite test
+EOF
