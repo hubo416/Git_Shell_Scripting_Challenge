@@ -48,7 +48,7 @@ wc_lite_solution_sarah() {
 }
 
 # 스크립트의 인자를 함수로 전달하여 실행
-wc_lite_solution_sarah "$@"
+#wc_lite_solution_sarah "$@"
 
 
 #=======
@@ -103,9 +103,9 @@ wc_lite_solution_sarah "$@"
 #    echo "Famas 코드";
 # }
     # 출력
-    $opt_l && echo "Lines: $line_count"
-    $opt_w && echo "Words: $word_count"
-    $opt_c && echo "Chars: $char_count"
+   # $opt_l && echo "Lines: $line_count"
+   # $opt_w && echo "Words: $word_count"
+   # $opt_c && echo "Chars: $char_count"
  ############################################
  ############################################
  ################## 방어막 ##################
@@ -193,3 +193,51 @@ wc_lite_solution_mj() {
 
 # mj 실행하기
 # wc_lite_solution_mj "$@"
+
+#!/bin/bash
+
+# --- 참가자: Famas ---
+wc_lite_solution_Famas() {
+    # 인자 처리
+    local lines=0
+    local words=0
+    local chars=0
+    local show_lines=0
+    local show_words=0
+    local show_chars=0
+    local files=()
+
+    # 옵션 확인
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            -l) show_lines=1 ;;
+            -w) show_words=1 ;;
+            -c) show_chars=1 ;;
+            --) shift; files+=("$1") ;;
+            -*) echo "Unknown option: $1"; return 1 ;;
+            *) files+=("$1") ;;
+        esac
+        shift
+    done
+
+    # 옵션이 하나도 없으면 모두 출력
+    if [[ $show_lines -eq 0 && $show_words -eq 0 && $show_chars -eq 0 ]]; then
+        show_lines=1
+        show_words=1
+        show_chars=1
+    fi
+
+    # 파일 처리
+    for f in "${files[@]}"; do
+        if [[ ! -f $f ]]; then
+            echo "File not found: $f"
+            continue
+        fi
+
+        [[ $show_lines -eq 1 ]] && echo -n "라인: $(wc -l < "$f") "
+        [[ $show_words -eq 1 ]] && echo -n "단어: $(wc -w < "$f") "
+        [[ $show_chars -eq 1 ]] && echo -n "글자: $(wc -c < "$f") "
+        echo
+    done
+}
+wc_lite_solution_Famas "$@"
