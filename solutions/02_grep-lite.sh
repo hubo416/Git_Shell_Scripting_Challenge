@@ -35,22 +35,6 @@ grep_lite_solution_mj() {
                 ;;
             \?)
                 echo "잘못된 옵션입니다: -$OPTARG" >&2
-grep_lite_solution_sarah() {
-    echo "Sarah's solution for grep-lite"
-# 1. 옵션 플래그 초기화
-    local case_insensitive=false
-    local show_lines=false
-    local invert_match=false
-
-    # 2. 옵션 파싱
-    while [[ "$1" == -* ]]; do
-        case "$1" in
-            -i) case_insensitive=true; shift ;;
-            -n) show_lines=true; shift ;;
-            -v) invert_match=true; shift ;;
-            *)
-                echo "Error: Invalid option '$1'" >&2
-                echo "Usage: $0 [-i] [-n] [-v] PATTERN FILE" >&2
                 return 1
                 ;;
         esac
@@ -80,60 +64,9 @@ grep_lite_solution_sarah() {
         return 1
     fi
 }
-grep_lite_solution_mj "$@"
-    # 3. 패턴 및 파일 유효성 검사
-    if [ "$#" -lt 2 ]; then
-        echo "Error: PATTERN and FILE are required." >&2
-        echo "Usage: $0 [-i] [-n] [-v] PATTERN FILE" >&2
-        return 1
-    fi
+#grep_lite_solution_mj "$@"
 
-    local pattern="$1"
-    local file="$2"
-
-    if [ ! -f "$file" ]; then
-        echo "Error: File not found: '$file'" >&2
-        return 1
-    fi
-
-    # 4. -i 옵션 처리
-    if $case_insensitive; then
-        # Bash의 내장 기능을 활성화하여 대소문자를 무시
-        shopt -s nocasematch
-    fi
-
-    # 5. 파일을 한 줄씩 읽으며 검색
-    local line_num=0
-    while IFS= read -r line; do
-        ((line_num++))
-
-        # 현재 줄에 패턴이 포함되어 있는지 확인
-        if [[ "$line" == *"$pattern"* ]]; then
-            # 패턴이 일치할 때: -v가 꺼져있으면 출력
-            if ! $invert_match; then
-                if $show_lines; then
-                    echo "$line_num:$line"
-                else
-                    echo "$line"
-                fi
-            fi
-        else
-            # 패턴이 일치하지 않을 때: -v가 켜져있으면 출력
-            if $invert_match; then
-                if $show_lines; then
-                    echo "$line_num:$line"
-                else
-                    echo "$line"
-                fi
-            fi
-        fi
-    done < "$file"
-
-    # 6. 셸 옵션 원상 복구 (좋은 습관)
-    if $case_insensitive; then
-        shopt -u nocasematch
-    fi
+rep_lite_solution_Famas(){
+    printf "이동현 02번 코드\n"
 }
-
-#try ./02_grep-lite.sh -i -n "hello" test.txt
-grep_lite_solution_sarah "$@"
+rep_lite_solution_Famas;

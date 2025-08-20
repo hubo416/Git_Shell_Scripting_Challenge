@@ -11,6 +11,22 @@
  #  - -c: 문자 수 출력
  #  - 옵션이 없으면 -l, -w, -c 결과를 모두 출력합니다.
 
+ ############################################################
+# 실행 및 테스트 방법 (01_test.sh)
+#
+# 1. 자동 채점 스크립트 실행 (01_test.sh)
+#    ./01_test.sh
+#
+#    - 예상 출력 예시:
+#        === Test wc-lite ===
+#        [PASS] -l option (Lines: 3)
+#        [PASS] -w option (Words: 7)
+#        [PASS] -c option (Chars: 36)
+#
+# 2. 참고
+#    - 01_test.sh 는 내부적으로 ./01_wc-lite.sh 를 호출하여 결과를 비교합니다.
+#    - PASS/FAIL 메시지를 통해 정답 여부를 확인할 수 있습니다.
+############################################################
 
 #  !! 참가자 솔루션 !!
 # 아래에 다른 참가자의 코드를 지우지 말고, 자신의 코드를 추가하세요.
@@ -112,6 +128,14 @@ wc_lite_solution_sarah() {
  ############################################
  ############################################
 
+<<<<<<< HEAD
+# ---- main dispatcher ----
+if declare -f wc_lite_solution_yschoi >/dev/null; then
+  wc_lite_solution_yschoi "$@"
+elif declare -f wc_lite_solution_yourname >/dev/null; then
+  wc_lite_solution_yourname "$@"
+fi
+=======
 wc_lite_solution_mj() {
     # 옵션 플래그 초기화
     show_lines=0
@@ -241,3 +265,4 @@ wc_lite_solution_Famas() {
     done
 }
 wc_lite_solution_Famas "$@"
+>>>>>>> edb5435443972bed3878b477210085e0406a7b41
