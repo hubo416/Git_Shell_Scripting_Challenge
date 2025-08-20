@@ -14,15 +14,8 @@
 
 # --- 참가자: [Your Name Here] ---
 # (여기에 자신의 스크립트 코드를 작성하세요)
-<<<<<<< HEAD
 wc_lite_solution_mj() {
     echo ImMj
 }
 
 wc_lite_solution_mj
-=======
-# wc_lite_solution_yourname() {
-#    Your logic here
-#    echo "My solution for grep-lite"
-# }
->>>>>>> c0d8bab2205183422a189ab2f498aa7cea27de53
