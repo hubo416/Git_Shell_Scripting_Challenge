@@ -20,4 +20,9 @@
 #    Your logic here
 #    echo "My solution for wc-lite"
 # }
+<<<<<<< HEAD
 # mjmjmjasdfmfksdajfksadjbfksjdabflksadbflkjasbdflkjbasdfkjasbdfkjbawkvjbzskldjvbkasjdbvkjasdblvk
+=======
+
+# ㅎㅇ
+>>>>>>> Famas
