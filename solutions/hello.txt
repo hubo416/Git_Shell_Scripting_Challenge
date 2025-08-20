@@ -1,0 +1,6 @@
+Hello world, from your shell.
+
+This is a simple test file
+for the wc-lite and grep-lite scripts.
+
+Have a nice day!
