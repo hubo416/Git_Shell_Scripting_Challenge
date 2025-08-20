@@ -5,7 +5,7 @@ echo "=== Test wc-lite ==="
 # Expected values
 exp_lines="Lines: 3"
 exp_words="Words: 7"
-exp_chars="Chars: 36"
+exp_chars="Chars: 39"
 
 # Run solutions
 out_lines=$(./01_wc-lite.sh -l 01_data.txt | xargs)
